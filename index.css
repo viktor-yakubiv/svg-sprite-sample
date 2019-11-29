@@ -1,11 +1,12 @@
 html,
 body {
-  font: 16px/1.5 sans-serif;
+  font: 48px/1.5 sans-serif;
 }
 
 a {
   color: blue;
   text-decoration: none;
+  transition: color 150ms;
 }
 
 a:hover,
@@ -26,19 +27,22 @@ a:active {
   vertical-align: top;
 }
 
+:root {
+  --icon-alert: url('data:image/svg+xml,\
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">\
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>\
+    </svg>\
+  ');
+}
+
 .icon-alert::before {
   content: '';
   display: inline-block;
   width: 1.5rem;
   height: 1.5rem;
-  background: no-repeat center / contain;
-  background-image: url('data:image/svg+xml,\
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">\
-      <symbol id="alert" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></symbol>\
-      <use href="%23alert" />\
-    </svg>\
-  ');
-  fill: currentColor;
   margin: -.125rem;
+  margin-right: .5ch;
   vertical-align: top;
+  background: currentColor;
+  -webkit-mask-image: var(--icon-alert);
 }
